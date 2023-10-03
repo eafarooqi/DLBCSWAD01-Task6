@@ -52,7 +52,7 @@
         <div class="col-md-12 px-0">
           <h1 class="display-4 fst-italic">Order Computer Components</h1>
           <p class="lead my-3">We offer wide range of computer compoentes. Please use our order form to place an order.</p>
-          <p class="lead mb-0"><a href="#" class="text-white fw-bold">Place an order</a></p>
+          <p class="lead mb-0"><a href="#orderForm" class="text-white fw-bold">Place an order</a></p>
         </div>
       </div>
 
@@ -317,12 +317,15 @@
                   <h4 class="mb-3">Order Summary</h4>
 
                   <ul class="list-group mb-3" v-if="selectedItems.length > 0">
-                    <li class="list-group-item d-flex justify-content-between lh-sm" v-for="selectedItem in selectedItems" v-bind:key="selectedItem.key">
+                    <li class="list-group-item d-flex justify-content-between lh-sm" v-for="(selectedItem, index) in selectedItems" v-bind:key="selectedItem.key">
                       <div>
                         <h6 class="my-0">{{ selectedItem.name }}</h6>
                         <small class="text-muted">Quantity: {{ selectedItem.quantity }}</small>
                       </div>
-                      <span class="text-muted">€ {{ parseFloat(selectedItem.pricePerUnit * selectedItem.quantity).toFixed(2) }}</span>
+                      <span class="text-muted">
+                        € {{ parseFloat(selectedItem.pricePerUnit * selectedItem.quantity).toFixed(2) }}
+                        <a href="#" class="text-danger" @click.prevent="removeItem(index)"><i class="fa-solid fa-times"></i></a>
+                      </span>
                     </li>
                     
                     <li class="list-group-item d-flex justify-content-between">
@@ -422,6 +425,9 @@
                   item.quantity = 0;
 
                 },
+                removeItem: function(index) {
+                  this.selectedItems.splice(this.selectedItems.indexOf(event), 1);
+                }
             },
             watch:{
                 message: function (){
