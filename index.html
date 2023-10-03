@@ -10,28 +10,28 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </head>
 <body>
-    <header>
-        <div class="bg-dark text-white py-2 px-3">
+    <header id="header">
+        <div class="bg-dark text-white py-2 px-3 sticky-top">
           <div class="container">
             <div class="d-flex">
               <a href="index.html" class="h5 d-flex align-items-center text-white text-decoration-none me-lg-auto my-2">
                 <i class="fa-solid fa-computer me-2"></i> COMP. PARTS
               </a>
-              <ul class="nav col-12 col-lg-auto justify-content-center">
+              <ul class="nav navbar navbar-expand-lg col-12 col-lg-auto justify-content-center">
                 <li>
-                  <a href="#" class="nav-link text-center text-white mt-2">
+                  <a href="#header" class="nav-link text-center text-white mt-2">
                     <i class="mb-1 fa-solid fa-house d-block"></i>
                     Home
                   </a>
                 </li>
                 <li>
-                  <a href="#" class="nav-link text-center text-white mt-2">
+                  <a href="#services" class="nav-link text-center text-white mt-2">
                     <i class="mb-1 fa-solid fa-handshake d-block"></i>
                     Services
                   </a>
                 </li>
                 <li>
-                  <a href="#" class="nav-link text-center text-white mt-2">
+                  <a href="#orderForm" class="nav-link text-center text-white mt-2">
                     <i class="mb-1 fa-solid fa-cart-shopping d-block"></i>
                     Order
                   </a>
@@ -47,5 +47,388 @@
           </div>
         </div>
     </header>
+    <main>
+      <div class="p-4 p-md-5 mb-4 text-white text-center rounded bg-secondary bg-gradient">
+        <div class="col-md-12 px-0">
+          <h1 class="display-4 fst-italic">Order Computer Components</h1>
+          <p class="lead my-3">We offer wide range of computer compoentes. Please use our order form to place an order.</p>
+          <p class="lead mb-0"><a href="#" class="text-white fw-bold">Place an order</a></p>
+        </div>
+      </div>
+
+      <div class="container">
+        <div class="row text-center mt-5" id="services">
+          <div class="col-lg-4">
+            <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"></rect><text x="50%" y="50%" fill="#777" dy=".3em">140x140</text></svg>
+            <h2>Original</h2>
+            <p>Some representative placeholder content for the three columns of text below the carousel. This is the first column.</p>
+            <p><a class="btn btn-secondary" href="#">View details »</a></p>
+          </div>
+          <div class="col-lg-4">
+            <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"></rect><text x="50%" y="50%" fill="#777" dy=".3em">140x140</text></svg>
+    
+            <h2>Fast Delivery</h2>
+            <p>Another exciting bit of representative placeholder content. This time, we've moved on to the second column.</p>
+            <p><a class="btn btn-secondary" href="#">View details »</a></p>
+          </div>
+          <div class="col-lg-4">
+            <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"></rect><text x="50%" y="50%" fill="#777" dy=".3em">140x140</text></svg>
+    
+            <h2>Support & Warranty</h2>
+            <p>And lastly this, the third column of representative placeholder content.</p>
+            <p><a class="btn btn-secondary" href="#">View details »</a></p>
+          </div>
+        </div>
+
+
+        <hr class="m-5">
+
+        <div class="row" id="orderForm">
+
+          <div class="py-5 text-center">
+            <h2>Order Form</h2>
+            <p class="lead">Below is an example form built entirely with Bootstrap’s form controls. Each required form group has a validation state that can be triggered by attempting to submit the form without completing it.</p>
+          </div>
+
+          <div class="col-md-12">
+            
+            <form novalidate id="app">
+              <h4 class="mb-3">Delivery Address</h4>
+              <div class="row g-3">
+                <div class="col-sm-6">
+                  <label for="name" class="form-label">Name</label>
+                  <input type="text" class="form-control" id="name" v-model="name" required>
+                  <div class="invalid-feedback">
+                    Valid first name is required.
+                  </div>
+                </div>
+    
+                <div class="col-sm-6">
+                  <label for="email" class="form-label">Email</label>
+                  <input type="email" class="form-control" id="email" placeholder="email@example.com" v-model="email" required>
+                  <div class="invalid-feedback">
+                    Please enter a valid email address for shipping updates.
+                  </div>
+                </div>
+    
+                <div class="col-12">
+                  <label for="deliveryAddressStreet" class="form-label">Address</label>
+                  <input type="text" class="form-control" id="deliveryAddressStreet"  v-model="deliveryAddressStreet" required>
+                  <div class="invalid-feedback">
+                    Please enter your shipping address.
+                  </div>
+                </div>
+    
+                <div class="col-md-5">
+                  <label for="deliveryAddressCity" class="form-label">City</label>
+                  <input type="text" class="form-control" id="deliveryAddressCity" v-model="deliveryAddressCity" required>
+                  <div class="invalid-feedback">
+                    Please select a valid country.
+                  </div>
+                </div>
+    
+                <div class="col-md-4">
+                  <label for="deliveryAddressState" class="form-label">State</label>
+                  <input type="text" class="form-control" id="deliveryAddressState" v-model="deliveryAddressState" required>
+                  <div class="invalid-feedback">
+                    Please provide a valid state.
+                  </div>
+                </div>
+    
+                <div class="col-md-3">
+                  <label for="deliveryAddressPostalCode" class="form-label">Zip</label>
+                  <input type="text" class="form-control" id="deliveryAddressPostalCode" v-model="deliveryAddressPostalCode" required>
+                  <div class="invalid-feedback">
+                    Zip code required.
+                  </div>
+                </div>
+              </div>
+    
+              <hr class="my-4">
+    
+              <div class="form-check">
+                <input type="checkbox" class="form-check-input" id="sameAddress" v-model="sameAddress">
+                <label class="form-check-label" for="sameAddress">Shipping address is the same as my billing address</label>
+              </div>
+
+              <div class="row mt-4" v-show="!sameAddress">
+
+                <h4 class="mb-3">Billing Address</h4>
+
+                <div class="col-12">
+                  <label for="billingAddressStreet" class="form-label">Address</label>
+                  <input type="text" class="form-control" id="billingAddressStreet"  v-model="billingAddressStreet" required>
+                  <div class="invalid-feedback">
+                    Please enter your shipping address.
+                  </div>
+                </div>
+              
+    
+                <div class="col-md-5">
+                  <label for="billingAddressCity" class="form-label">City</label>
+                  <input type="text" class="form-control" id="billingAddressCity" v-model="billingAddressCity" required>
+                  <div class="invalid-feedback">
+                    Please select a valid country.
+                  </div>
+                </div>
+    
+                <div class="col-md-4">
+                  <label for="billingAddressState" class="form-label">State</label>
+                  <input type="text" class="form-control" id="billingAddressState" v-model="billingAddressState" required>
+                  <div class="invalid-feedback">
+                    Please provide a valid state.
+                  </div>
+                </div>
+    
+                <div class="col-md-3">
+                  <label for="billingAddressPostalCode" class="form-label">Zip</label>
+                  <input type="text" class="form-control" id="billingAddressPostalCode" v-model="billingAddressPostalCode" required>
+                  <div class="invalid-feedback">
+                    Zip code required.
+                  </div>
+                </div>
+              </div>
+    
+              <hr class="my-4">
+
+              <div class="row">
+                <div class="col-6">
+    
+                  <h4 class="mb-3">Components</h4>
+
+                  <div class="col-12">
+                    <select class="form-select" aria-label="Component Type" v-model="componentType">
+                      <option value="">Select Component Type</option>
+                      <option value="ram">Ram</option>
+                      <option value="processors">Processors</option>
+                      <option value="hard-disk">Hard disks</option>
+                      <option value="monitor">Monitor</option>
+                    </select>
+                  </div>
+
+                  <div class="my-3" v-show="componentType == 'ram'">
+
+                    <div class="card mb-3" v-for="item in rams" v-bind:key="item.id">
+                      <div class="row g-0">
+                        <div class="col-md-4 d-flex align-self-center justify-content-center">
+                          <i class="fa-solid fa-memory display-1"></i>
+                        </div>
+                        <div class="col-md-8">
+                          <div class="card-body">
+                            <h5 class="card-title">{{ item.name }}</h5>
+                            <div class="card-text">
+                              <p class="mb-1">{{ item.description }}</p>
+                              <p class="fw-bold">€ {{ parseFloat(item.price).toFixed(2) }}</p>
+                            </div>
+                            <div class="card-text">
+                              <small class="text-muted">Quantity</small>
+                              <div class="input-group mb-3">
+                                <input type="number" min="0" class="form-control" aria-describedby="button-add-ram-4gb" v-model="item.quantity">
+                                <button class="btn btn-outline-secondary" type="button" id="button-add-ram-4gb" v-on:click="addItem(item)">Add</button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                  </div>
+
+                  <div class="my-3" v-if="componentType == 'processors'">
+                    <div class="card mb-3" v-for="item in processors" v-bind:key="item.id">
+                      <div class="row g-0">
+                        <div class="col-md-4 d-flex align-self-center justify-content-center">
+                          <i class="fa-solid fa-microchip display-1"></i>
+                        </div>
+                        <div class="col-md-8">
+                          <div class="card-body">
+                            <h5 class="card-title">{{ item.name }}</h5>
+                            <div class="card-text">
+                              <p class="mb-1">{{ item.description }}</p>
+                              <p class="fw-bold">€ {{ parseFloat(item.price).toFixed(2) }}</p>
+                            </div>
+                            <div class="card-text">
+                              <small class="text-muted">Quantity</small>
+                              <div class="input-group mb-3">
+                                <input type="number" min="0" class="form-control" aria-describedby="button-add-ram-4gb" v-model="item.quantity">
+                                <button class="btn btn-outline-secondary" type="button" id="button-add-ram-4gb" v-on:click="addItem(item)">Add</button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="my-3" v-if="componentType == 'hard-disk'">
+                    <div class="card mb-3" v-for="item in hardDisks" v-bind:key="item.id">
+                      <div class="row g-0">
+                        <div class="col-md-4 d-flex align-self-center justify-content-center">
+                          <i class="fa-solid fa-hard-drive display-1"></i>
+                        </div>
+                        <div class="col-md-8">
+                          <div class="card-body">
+                            <h5 class="card-title">{{ item.name }}</h5>
+                            <div class="card-text">
+                              <p class="mb-1">{{ item.description }}</p>
+                              <p class="fw-bold">€ {{ parseFloat(item.price).toFixed(2) }}</p>
+                            </div>
+                            <div class="card-text">
+                              <small class="text-muted">Quantity</small>
+                              <div class="input-group mb-3">
+                                <input type="number" min="0" class="form-control" aria-describedby="button-add-ram-4gb" v-model="item.quantity">
+                                <button class="btn btn-outline-secondary" type="button" id="button-add-ram-4gb" v-on:click="addItem(item)">Add</button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="my-3" v-if="componentType == 'monitor'">
+                    <div class="card mb-3" v-for="item in monitors" v-bind:key="item.id">
+                      <div class="row g-0">
+                        <div class="col-md-4 d-flex align-self-center justify-content-center">
+                          <i class="fa-solid fa-desktop display-1"></i>
+                        </div>
+                        <div class="col-md-8">
+                          <div class="card-body">
+                            <h5 class="card-title">{{ item.name }}</h5>
+                            <div class="card-text">
+                              <p class="mb-1">{{ item.description }}</p>
+                              <p class="fw-bold">€ {{ parseFloat(item.price).toFixed(2) }}</p>
+                            </div>
+                            <div class="card-text">
+                              <small class="text-muted">Quantity</small>
+                              <div class="input-group mb-3">
+                                <input type="number" min="0" class="form-control" aria-describedby="button-add-ram-4gb" v-model="item.quantity">
+                                <button class="btn btn-outline-secondary" type="button" id="button-add-ram-4gb" v-on:click="addItem(item)">Add</button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-6">
+                  <h4 class="mb-3">Order Summary</h4>
+
+                  <ul class="list-group mb-3" v-if="selectedItems.length > 0">
+                    <li class="list-group-item d-flex justify-content-between lh-sm" v-for="selectedItem in selectedItems" v-bind:key="selectedItem.key">
+                      <div>
+                        <h6 class="my-0">{{ selectedItem.name }}</h6>
+                        <small class="text-muted">Quantity: {{ selectedItem.quantity }}</small>
+                      </div>
+                      <span class="text-muted">€ {{ parseFloat(selectedItem.pricePerUnit * selectedItem.quantity).toFixed(2) }}</span>
+                    </li>
+                    
+                    <li class="list-group-item d-flex justify-content-between">
+                      <span>Total</span>
+                      <strong>€ {{ cartTotal }}</strong>
+                    </li>
+                  </ul>
+
+                </div>
+
+              </div>
+
+              <hr class="my-4">
+    
+              <button class="w-100 btn btn-primary btn-lg" type="submit">Order</button>
+            </form>
+          </div>
+
+        </div>
+    
+        <hr class="m-5">
+
+      </div>
+    </main>
 </body>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.min.js"></script>
+<script>
+
+    new Vue({
+        el:'#app',
+        data: { 
+            name: '',
+            email: '',
+            message: '', 
+            sameAddress: true, 
+            deliveryAddressStreet: '',
+            deliveryAddressCity: '',
+            deliveryAddressState: '',
+            deliveryAddressPostalCode: '',
+            billingAddressStreet: '',
+            billingAddressCity: '',
+            billingAddressState: '',
+            billingAddressPostalCode: '',
+            componentType: 'ram',
+            isVisible: false, otherVisible : false, counter:0,
+            selectedItems: [],
+            rams :[
+              {id: 'R1', name:'RAM 4GB', description:'204 Pin Sodimm - DDR3L - PC3-12800 (1600Mhz)', quantity: 0, price: 15.00},
+              {id: 'R2', name:'RAM 8GB', description:'204 Pin Sodimm - DDR3L - PC3-12800 (1600Mhz)', quantity: 0, price: 25.00},
+            ],
+            hardDisks :[
+              {id: 'H1', name:'HDD 1TB', description:'internal hard drive, 3.5 inch, 5400 rpm', quantity: 0, price: 36.00},
+              {id: 'H2', name:'SSD 512GB', description:'2.5 inch SSD SATA III', quantity: 0, price: 25.00},
+              {id: 'H3', name:'SSD 1TB', description:'M.2 SSD SATA III', quantity: 0, price: 43.00},
+            ],
+            processors :[
+              {id: 'P1', name:'Core i3', description:'13th Generation, 6 Cores', quantity: 0, price: 97.68},
+              {id: 'P2', name:'Core i5', description:'13th Generation, 12 Cores', quantity: 0, price: 200.56},
+              {id: 'P3', name:'Core i7', description:'13th Generation, 16 Cores', quantity: 0, price: 398.88},
+            ],
+            monitors :[
+              {id: 'P1', name:'24 inch Monitor', description:'Full HD (1080p) 1920 x 1080 at 75 Hz', quantity: 0, price: 99.99},
+              {id: 'P2', name:'27 inch Monitor', description:'QHD 2560 x 1440 at 75 Hz ', quantity: 0, price: 119.99},
+              {id: 'P3', name:'32 inch Curved Monitor', description:'4K 3840 x 2160 at 60 Hz', quantity: 0, price: 399.99},
+            ]
+
+        },
+        computed:{
+            cartTotal: function() {
+                let total = 0;
+                for(let i=0; i < this.selectedItems.length; i++){
+                    total += this.selectedItems[i].pricePerUnit * this.selectedItems[i].quantity;        
+                }
+
+                return parseFloat(total).toFixed(2);
+            },
+        },
+        methods: {
+                addItem: function (item) {
+
+                  if(item.quantity <= 0){
+                    return false;
+                  }
+                
+                  itemIndex = this.selectedItems.findIndex((selectedItem => selectedItem.key == item.id));
+
+                  if(this.selectedItems.length && itemIndex >= 0){
+
+                    let existingQuantity = this.selectedItems[itemIndex].quantity;
+                    let updatedQuantityt = parseInt(existingQuantity) + parseInt(item.quantity);
+
+                    this.selectedItems[itemIndex].quantity = isNaN(updatedQuantityt) ? 0 : updatedQuantityt;
+                  } else{
+                    this.selectedItems.push({ key: item.id, name: item.name, quantity: item.quantity, pricePerUnit: item.price });
+                  }
+
+                  item.quantity = 0;
+
+                },
+            },
+            watch:{
+                message: function (){
+                    console.log(this.message);
+                }
+            },
+    })
+</script>
+
 </html>
