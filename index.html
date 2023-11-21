@@ -223,7 +223,7 @@
                             <div class="card-text">
                               <small class="text-muted">Quantity</small>
                               <div class="input-group mb-3">
-                                <input type="number" min="0" class="form-control" aria-describedby="button-add-ram-4gb" v-model="item.quantity">
+                                <input type="number" min="1" class="form-control" aria-describedby="button-add-ram-4gb" v-model="item.quantity">
                                 <button class="btn btn-outline-secondary" type="button" id="button-add-ram-4gb" v-on:click="addItem(item)">Add</button>
                               </div>
                             </div>
@@ -250,7 +250,7 @@
                             <div class="card-text">
                               <small class="text-muted">Quantity</small>
                               <div class="input-group mb-3">
-                                <input type="number" min="0" class="form-control" aria-describedby="button-add-ram-4gb" v-model="item.quantity">
+                                <input type="number" min="1" class="form-control" aria-describedby="button-add-ram-4gb" v-model="item.quantity">
                                 <button class="btn btn-outline-secondary" type="button" id="button-add-ram-4gb" v-on:click="addItem(item)">Add</button>
                               </div>
                             </div>
@@ -276,7 +276,7 @@
                             <div class="card-text">
                               <small class="text-muted">Quantity</small>
                               <div class="input-group mb-3">
-                                <input type="number" min="0" class="form-control" aria-describedby="button-add-ram-4gb" v-model="item.quantity">
+                                <input type="number" min="1" class="form-control" aria-describedby="button-add-ram-4gb" v-model="item.quantity">
                                 <button class="btn btn-outline-secondary" type="button" id="button-add-ram-4gb" v-on:click="addItem(item)">Add</button>
                               </div>
                             </div>
@@ -302,7 +302,7 @@
                             <div class="card-text">
                               <small class="text-muted">Quantity</small>
                               <div class="input-group mb-3">
-                                <input type="number" min="0" class="form-control" aria-describedby="button-add-ram-4gb" v-model="item.quantity">
+                                <input type="number" min="1" class="form-control" aria-describedby="button-add-ram-4gb" v-model="item.quantity">
                                 <button class="btn btn-outline-secondary" type="button" id="button-add-ram-4gb" v-on:click="addItem(item)">Add</button>
                               </div>
                             </div>
@@ -373,23 +373,23 @@
             isVisible: false, otherVisible : false, counter:0,
             selectedItems: [],
             rams :[
-              {id: 'R1', name:'RAM 4GB', description:'204 Pin Sodimm - DDR3L - PC3-12800 (1600Mhz)', quantity: 0, price: 15.00},
-              {id: 'R2', name:'RAM 8GB', description:'204 Pin Sodimm - DDR3L - PC3-12800 (1600Mhz)', quantity: 0, price: 25.00},
+              {id: 'R1', name:'RAM 4GB', description:'204 Pin Sodimm - DDR3L - PC3-12800 (1600Mhz)', quantity: 1, price: 15.00},
+              {id: 'R2', name:'RAM 8GB', description:'204 Pin Sodimm - DDR3L - PC3-12800 (1600Mhz)', quantity: 1, price: 25.00},
             ],
             hardDisks :[
-              {id: 'H1', name:'HDD 1TB', description:'internal hard drive, 3.5 inch, 5400 rpm', quantity: 0, price: 36.00},
-              {id: 'H2', name:'SSD 512GB', description:'2.5 inch SSD SATA III', quantity: 0, price: 25.00},
-              {id: 'H3', name:'SSD 1TB', description:'M.2 SSD SATA III', quantity: 0, price: 43.00},
+              {id: 'H1', name:'HDD 1TB', description:'internal hard drive, 3.5 inch, 5400 rpm', quantity: 1, price: 36.00},
+              {id: 'H2', name:'SSD 512GB', description:'2.5 inch SSD SATA III', quantity: 1, price: 25.00},
+              {id: 'H3', name:'SSD 1TB', description:'M.2 SSD SATA III', quantity: 1, price: 43.00},
             ],
             processors :[
-              {id: 'P1', name:'Core i3', description:'13th Generation, 6 Cores', quantity: 0, price: 97.68},
-              {id: 'P2', name:'Core i5', description:'13th Generation, 12 Cores', quantity: 0, price: 200.56},
-              {id: 'P3', name:'Core i7', description:'13th Generation, 16 Cores', quantity: 0, price: 398.88},
+              {id: 'P1', name:'Core i3', description:'13th Generation, 6 Cores', quantity: 1, price: 97.68},
+              {id: 'P2', name:'Core i5', description:'13th Generation, 12 Cores', quantity: 1, price: 200.56},
+              {id: 'P3', name:'Core i7', description:'13th Generation, 16 Cores', quantity: 1, price: 398.88},
             ],
             monitors :[
-              {id: 'M1', name:'24 inch Monitor', description:'Full HD (1080p) 1920 x 1080 at 75 Hz', quantity: 0, price: 99.99},
-              {id: 'M2', name:'27 inch Monitor', description:'QHD 2560 x 1440 at 75 Hz ', quantity: 0, price: 119.99},
-              {id: 'M3', name:'32 inch Curved Monitor', description:'4K 3840 x 2160 at 60 Hz', quantity: 0, price: 399.99},
+              {id: 'M1', name:'24 inch Monitor', description:'Full HD (1080p) 1920 x 1080 at 75 Hz', quantity: 1, price: 99.99},
+              {id: 'M2', name:'27 inch Monitor', description:'QHD 2560 x 1440 at 75 Hz ', quantity: 1, price: 119.99},
+              {id: 'M3', name:'32 inch Curved Monitor', description:'4K 3840 x 2160 at 60 Hz', quantity: 1, price: 399.99},
             ]
 
         },
@@ -422,7 +422,7 @@
                     this.selectedItems.push({ key: item.id, name: item.name, quantity: item.quantity, pricePerUnit: item.price });
                   }
 
-                  item.quantity = 0;
+                  item.quantity = 1;
 
                 },
                 removeItem: function(index) {
