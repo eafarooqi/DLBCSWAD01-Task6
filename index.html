@@ -87,7 +87,7 @@
 
           <div class="py-5 text-center">
             <h2>Order Form</h2>
-            <p class="lead">Below is an example form built entirely with Bootstrap’s form controls. Each required form group has a validation state that can be triggered by attempting to submit the form without completing it.</p>
+            <p class="lead">Please select components below to place an order.</p>
           </div>
 
           <div class="col-md-12">
@@ -96,51 +96,33 @@
               <h4 class="mb-3">Delivery Address</h4>
               <div class="row g-3">
                 <div class="col-sm-6">
-                  <label for="name" class="form-label">Name</label>
+                  <label for="name" class="form-label">Name<span class="text-danger">*</span></label>
                   <input type="text" class="form-control" id="name" v-model="name" required>
-                  <div class="invalid-feedback">
-                    Valid first name is required.
-                  </div>
                 </div>
     
                 <div class="col-sm-6">
-                  <label for="email" class="form-label">Email</label>
+                  <label for="email" class="form-label">Email<span class="text-danger">*</span></label>
                   <input type="email" class="form-control" id="email" placeholder="email@example.com" v-model="email" required>
-                  <div class="invalid-feedback">
-                    Please enter a valid email address for shipping updates.
-                  </div>
                 </div>
     
                 <div class="col-12">
-                  <label for="deliveryAddressStreet" class="form-label">Address</label>
+                  <label for="deliveryAddressStreet" class="form-label">Address<span class="text-danger">*</span></label>
                   <input type="text" class="form-control" id="deliveryAddressStreet"  v-model="deliveryAddressStreet" required>
-                  <div class="invalid-feedback">
-                    Please enter your shipping address.
-                  </div>
                 </div>
     
                 <div class="col-md-5">
                   <label for="deliveryAddressCity" class="form-label">City</label>
-                  <input type="text" class="form-control" id="deliveryAddressCity" v-model="deliveryAddressCity" required>
-                  <div class="invalid-feedback">
-                    Please select a valid country.
-                  </div>
+                  <input type="text" class="form-control" id="deliveryAddressCity" v-model="deliveryAddressCity">
                 </div>
     
                 <div class="col-md-4">
                   <label for="deliveryAddressState" class="form-label">State</label>
-                  <input type="text" class="form-control" id="deliveryAddressState" v-model="deliveryAddressState" required>
-                  <div class="invalid-feedback">
-                    Please provide a valid state.
-                  </div>
+                  <input type="text" class="form-control" id="deliveryAddressState" v-model="deliveryAddressState">
                 </div>
     
                 <div class="col-md-3">
                   <label for="deliveryAddressPostalCode" class="form-label">Zip</label>
-                  <input type="text" class="form-control" id="deliveryAddressPostalCode" v-model="deliveryAddressPostalCode" required>
-                  <div class="invalid-feedback">
-                    Zip code required.
-                  </div>
+                  <input type="text" class="form-control" id="deliveryAddressPostalCode" v-model="deliveryAddressPostalCode">
                 </div>
               </div>
     
@@ -157,35 +139,23 @@
 
                 <div class="col-12">
                   <label for="billingAddressStreet" class="form-label">Address</label>
-                  <input type="text" class="form-control" id="billingAddressStreet"  v-model="billingAddressStreet" required>
-                  <div class="invalid-feedback">
-                    Please enter your shipping address.
-                  </div>
+                  <input type="text" class="form-control" id="billingAddressStreet"  v-model="billingAddressStreet">
                 </div>
               
     
                 <div class="col-md-5">
                   <label for="billingAddressCity" class="form-label">City</label>
-                  <input type="text" class="form-control" id="billingAddressCity" v-model="billingAddressCity" required>
-                  <div class="invalid-feedback">
-                    Please select a valid country.
-                  </div>
+                  <input type="text" class="form-control" id="billingAddressCity" v-model="billingAddressCity">
                 </div>
     
                 <div class="col-md-4">
                   <label for="billingAddressState" class="form-label">State</label>
-                  <input type="text" class="form-control" id="billingAddressState" v-model="billingAddressState" required>
-                  <div class="invalid-feedback">
-                    Please provide a valid state.
-                  </div>
+                  <input type="text" class="form-control" id="billingAddressState" v-model="billingAddressState">
                 </div>
     
                 <div class="col-md-3">
                   <label for="billingAddressPostalCode" class="form-label">Zip</label>
-                  <input type="text" class="form-control" id="billingAddressPostalCode" v-model="billingAddressPostalCode" required>
-                  <div class="invalid-feedback">
-                    Zip code required.
-                  </div>
+                  <input type="text" class="form-control" id="billingAddressPostalCode" v-model="billingAddressPostalCode">
                 </div>
               </div>
     
@@ -343,14 +313,21 @@
               </div>
 
               <hr class="my-4">
+
+              <p class="text-danger" v-if="errors.length">
+                <b>Please fill the following mandatory fields:</b>
+                <ul class="text-danger">
+                  <li v-for="error in errors">{{ error }}</li>
+                </ul>
+              </p>
     
               <button type="button" class="w-100 btn btn-primary btn-lg" @click.prevent="showPopupOrderPlaced()">Order</button>
 
-              <div class="modal fade" ref="exampleModal" tabindex="-1" aria-hidden="true">
-                <div class="modal-dialog">
+              <div class="modal fade" ref="orderModal" tabindex="-1" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-scrollable">
                   <div class="modal-content">
                     <div class="modal-header">
-                      <h5 class="modal-title" id="exampleModalLabel">Thank you for your order.</h5>
+                      <h5 class="modal-title" id="orderModalLabel">Thank you for your order.</h5>
                       <button type="button" class="btn-close" @click="modal.hide()" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
@@ -400,6 +377,7 @@
     new Vue({
         el:'#app',
         data: { 
+            errors:[],
             modal: null,
             name: '',
             email: '',
@@ -438,7 +416,7 @@
 
         },
         mounted() {
-          this.modal = new bootstrap.Modal(this.$refs.exampleModal)
+          this.modal = new bootstrap.Modal(this.$refs.orderModal)
         },
         computed:{
             cartTotal: function() {
@@ -477,9 +455,25 @@
                 },
                 showPopupOrderPlaced: function(index) {
 
-                  if(this.selectedItems.length){
+                  if(this.selectedItems.length && this.validateForm()){
+                    this.errors = [];
                     this.modal.show();
                   }
+                },
+                validateForm:function(e){
+                  this.errors = [];
+                  if(!this.name) this.errors.push("Name.");
+                  if(!this.email) this.errors.push("Email.");
+                  if(this.email && !this.validateEmail(this.email)) this.errors.push("Invalid Email.");
+                  if(!this.deliveryAddressStreet) this.errors.push("Address.");
+
+                  if(!this.errors.length) return true;
+
+                  return false;
+                },
+                validateEmail:function(email) {
+                  var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+                  return re.test(email);
                 }
             },
             watch:{
