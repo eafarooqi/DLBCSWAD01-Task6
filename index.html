@@ -228,17 +228,22 @@
 
                     <div class="card mb-3" v-for="item in rams" v-bind:key="item.id">
                       <div class="row g-0">
+                         <!-- Item Icon -->
                         <div class="col-md-4 d-flex align-self-center justify-content-center">
                           <i class="fa-solid fa-memory display-1"></i>
                         </div>
                         <div class="col-md-8">
                           <div class="card-body">
+                            <!-- Item Name -->
                             <h5 class="card-title">{{ item.name }}</h5>
                             <div class="card-text">
+                              <!-- Item Description -->
                               <p class="mb-1">{{ item.description }}</p>
+                              <!-- Item Price -->
                               <p class="fw-bold">€ {{ parseFloat(item.price).toFixed(2) }}</p>
                             </div>
                             <div class="card-text">
+                              <!-- Item Qantity -->
                               <small class="text-muted">Quantity</small>
                               <div class="input-group mb-3">
                                 <input type="number" min="1" class="form-control" aria-describedby="button-add-ram-4gb" v-model="item.quantity">
@@ -257,17 +262,22 @@
                   <div class="my-3" v-if="componentType == 'processors'">
                     <div class="card mb-3" v-for="item in processors" v-bind:key="item.id">
                       <div class="row g-0">
+                        <!-- Item Icon -->
                         <div class="col-md-4 d-flex align-self-center justify-content-center">
                           <i class="fa-solid fa-microchip display-1"></i>
                         </div>
                         <div class="col-md-8">
                           <div class="card-body">
+                            <!-- Item Name -->
                             <h5 class="card-title">{{ item.name }}</h5>
                             <div class="card-text">
+                              <!-- Item Description -->
                               <p class="mb-1">{{ item.description }}</p>
+                              <!-- Item Price -->
                               <p class="fw-bold">€ {{ parseFloat(item.price).toFixed(2) }}</p>
                             </div>
                             <div class="card-text">
+                              <!-- Item Qantity -->
                               <small class="text-muted">Quantity</small>
                               <div class="input-group mb-3">
                                 <input type="number" min="1" class="form-control" aria-describedby="button-add-ram-4gb" v-model="item.quantity">
@@ -285,17 +295,22 @@
                   <div class="my-3" v-if="componentType == 'hard-disk'">
                     <div class="card mb-3" v-for="item in hardDisks" v-bind:key="item.id">
                       <div class="row g-0">
+                        <!-- Item Icon -->
                         <div class="col-md-4 d-flex align-self-center justify-content-center">
                           <i class="fa-solid fa-hard-drive display-1"></i>
                         </div>
                         <div class="col-md-8">
                           <div class="card-body">
+                            <!-- Item Name -->
                             <h5 class="card-title">{{ item.name }}</h5>
                             <div class="card-text">
+                              <!-- Item Description -->
                               <p class="mb-1">{{ item.description }}</p>
+                              <!-- Item Price -->
                               <p class="fw-bold">€ {{ parseFloat(item.price).toFixed(2) }}</p>
                             </div>
                             <div class="card-text">
+                              <!-- Item Qantity -->
                               <small class="text-muted">Quantity</small>
                               <div class="input-group mb-3">
                                 <input type="number" min="1" class="form-control" aria-describedby="button-add-ram-4gb" v-model="item.quantity">
@@ -313,17 +328,22 @@
                   <div class="my-3" v-if="componentType == 'monitor'">
                     <div class="card mb-3" v-for="item in monitors" v-bind:key="item.id">
                       <div class="row g-0">
+                        <!-- Item Icon -->
                         <div class="col-md-4 d-flex align-self-center justify-content-center">
                           <i class="fa-solid fa-desktop display-1"></i>
                         </div>
                         <div class="col-md-8">
                           <div class="card-body">
+                            <!-- Item Name -->
                             <h5 class="card-title">{{ item.name }}</h5>
                             <div class="card-text">
+                              <!-- Item Description -->
                               <p class="mb-1">{{ item.description }}</p>
+                              <!-- Item Price -->
                               <p class="fw-bold">€ {{ parseFloat(item.price).toFixed(2) }}</p>
                             </div>
                             <div class="card-text">
+                              <!-- Item Qantity -->
                               <small class="text-muted">Quantity</small>
                               <div class="input-group mb-3">
                                 <input type="number" min="1" class="form-control" aria-describedby="button-add-ram-4gb" v-model="item.quantity">
@@ -351,11 +371,15 @@
                   <ul class="list-group mb-3" v-if="selectedItems.length > 0">
                     <li class="list-group-item d-flex justify-content-between lh-sm" v-for="(selectedItem, index) in selectedItems" v-bind:key="selectedItem.key">
                       <div>
+                        <!-- Selected Item name -->
                         <h6 class="my-0">{{ selectedItem.name }}</h6>
+                        <!-- Selected Item quantity -->
                         <small class="text-muted">Quantity: {{ selectedItem.quantity }}</small>
                       </div>
                       <span class="text-muted">
+                        <!-- Selected Item total price -->
                         € {{ parseFloat(selectedItem.pricePerUnit * selectedItem.quantity).toFixed(2) }}
+                        <!-- Button to remove item from cart -->
                         <a href="#" class="text-danger" @click.prevent="removeItem(index)"><i class="fa-solid fa-times"></i></a>
                       </span>
                     </li>
@@ -404,10 +428,13 @@
                       <ul class="list-group mb-3" v-if="selectedItems.length > 0">
                         <li class="list-group-item d-flex justify-content-between lh-sm" v-for="(selectedItem, index) in selectedItems" v-bind:key="selectedItem.key">
                           <div>
+                            <!-- selected item name -->
                             <h6 class="my-0">{{ selectedItem.name }}</h6>
+                            <!-- selected item quanitity -->
                             <small class="text-muted">Quantity: {{ selectedItem.quantity }}</small>
                           </div>
                           <span class="text-muted">
+                            <!-- selected item total price -->
                             € {{ parseFloat(selectedItem.pricePerUnit * selectedItem.quantity).toFixed(2) }}
                           </span>
                         </li>
@@ -421,6 +448,7 @@
                     </div>
                     <!-- Modal Footer -->
                     <div class="modal-footer">
+                      <!-- Modal close button -->
                       <button type="button" class="btn btn-secondary" @click="modal.hide()">Close</button>
                     </div>
                   </div>
